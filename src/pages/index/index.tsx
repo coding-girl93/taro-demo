@@ -36,7 +36,7 @@ type PageState = {}
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
 interface Index {
-  props: IProps;
+  props: IProps
 }
 
 @connect(({ counter }) => ({
@@ -61,17 +61,32 @@ class Index extends Component {
    * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
+    // eslint-disable-next-line react/sort-comp
     config: Config = {
     navigationBarTitleText: '首页'
   }
-
+  componentWillMount(){
+    console.log('componentWillMount')
+  }
+  componentDidMount(){
+    console.log('componentDidMount')
+  }
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
+  componentWillUpdate(){
+    console.log('componentWillUpdate')
+  }
+  componentDidUpdate(){
+    console.log('componentDidUpdate')
+  }
+  componentWillUnmount () { 
 
-  componentWillUnmount () { }
+  }
 
-  componentDidShow () { }
+  componentDidShow () { 
+    console.log('componentDidShow')
+  }
 
   componentDidHide () { }
 
